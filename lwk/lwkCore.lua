@@ -18,12 +18,16 @@ local function writeToIndexFile(html, filename)
     file:close();
 end
 
-function module:export(htmlDoc, filename)
+function module:exportString(htmlDoc)
     lwkUtils:checkInstanceof(htmlDoc, 'HtmlDoc');
     local body = htmlDoc:renderHtml();
     local html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>%s</title></head>%s</html>';
+    html = html:format(htmlDoc.title, body);
+    return html;
+end
 
-    html = html:gsub('    ', ''):format(htmlDoc.title, body);
+function module:export(htmlDoc, filename)
+    local html = module:exportString(htmlDoc);
     writeToIndexFile(html, filename);
     return true;
 end
