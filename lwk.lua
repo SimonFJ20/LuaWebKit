@@ -13,5 +13,6 @@ addModule('lwk/customElement');
 addModule('lwk/buttonElement');
 addModule('lwk/headerElement');
 addModule('lwk/divElement');
+addModule('lwk/paragraphElement');
 
 return module;
