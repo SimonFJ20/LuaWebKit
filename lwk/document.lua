@@ -24,13 +24,12 @@ end
 function module:init_Document(title)
     return {
         instanceof = {
-            'HtmlElement',
             'HtmlDocument'
         },
+        renderHtml = renderHtml,
         children = {},
         styleImports = {},
-        title = title,
-        renderHtml = renderHtml
+        title = title
     };
 end
 

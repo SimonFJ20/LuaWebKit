@@ -3,8 +3,9 @@ local lwkUtils = require('lwk.lwkUtils');
 local module = {};
 
 local function renderHtml(self)
-    local html =  '<h%s>%s</h%s>';
-    html = html:format(self.size, self.text, self.size);
+    local attributes = lwkUtils:renderAttributes(self);
+    local html =  '<h%s%s>%s</h%s>';
+    html = html:format(self.size, attributes, self.text, self.size);
     return html;
 end
 
@@ -14,9 +15,10 @@ function module:init_HeaderElement(text, size)
             'HtmlDivElement',
             'HtmlElement'
         },
+        renderHtml = renderHtml,
+        attributes = {},
         size = size or 1,
-        text = text,
-        renderHtml = renderHtml
+        text = text
     };
 end
 

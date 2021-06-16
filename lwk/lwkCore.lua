@@ -44,7 +44,13 @@ function module:addChildren(parent, ...)
 end
 
 function module:importCss(document, filename)
+    lwkUtils:checkInstanceof(document, 'HtmlDocument');
     table.insert(document.styleImports, filename);
+end
+
+function module:setAttribute(element, key, value)
+    lwkUtils:checkInstanceof(element, 'HtmlElement');
+    element.attributes[key] = value;
 end
 
 return module;

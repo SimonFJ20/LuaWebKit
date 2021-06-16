@@ -15,8 +15,9 @@ function module:init_DivElement()
             'HtmlDivElement',
             'HtmlElement'
         },
+        renderHtml = renderHtml,
         children = {},
-        renderHtml = renderHtml
+        attributes = {}
     };
 end
 

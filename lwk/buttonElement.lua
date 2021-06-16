@@ -3,8 +3,9 @@ local lwkUtils = require('lwk.lwkUtils');
 local module = {};
 
 local function renderHtml(self)
-    local html =  '<button>%s</button>';
-    html = html:format(self.text);
+    local attributes = lwkUtils:renderAttributes(self);
+    local html =  '<button%s>%s</button>';
+    html = html:format(attributes, self.text);
     return html;
 end
 
@@ -14,8 +15,9 @@ function module:init_ButtonElement(text)
             'HtmlButtonElement',
             'HtmlElement'
         },
-        text = text,
-        renderHtml = renderHtml
+        renderHtml = renderHtml,
+        attributes = {},
+        text = text
     };
 end
 
