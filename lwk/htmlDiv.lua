@@ -2,7 +2,7 @@ local lwkUtils = require('lwk.lwkUtils');
 
 local module = {};
 
-local function renderHtml(self, childHtml)
+local function renderHtml(self)
     local innerHtml = lwkUtils:renderInnerHtml(self);
     local html =  '<div>%s</div>';
     html = html:format(innerHtml);
