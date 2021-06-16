@@ -14,7 +14,7 @@ lwk:addChild(htmlDoc, htmlHeader);
 lwk:addChild(htmlDoc, htmlButton);
 lwk:addChild(htmlDoc, div);
 
-lwk:export(htmlDoc);
+lwk:export(htmlDoc, 'index.html');
 
 
 
