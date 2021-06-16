@@ -2,7 +2,7 @@ local lwkUtils = require('lwk.lwkUtils');
 
 local module = {};
 
-local function writeToFile(html, filename)
+local function writeFileToDist(html, filename)
     print('Creating ./dist/ folder');
     os.execute('mkdir dist');
     local file = io.open('dist/' .. filename, 'w');
@@ -23,7 +23,7 @@ end
 
 function module:export(htmlDoc, filename)
     local html = module:exportString(htmlDoc);
-    writeToFile(html, filename);
+    writeFileToDist(html, filename);
     return true;
 end
 
