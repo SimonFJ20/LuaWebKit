@@ -2,18 +2,13 @@ local lwkUtils = require('lwk.lwkUtils');
 
 local module = {};
 
-local function writeToIndexFile(html, filename)
+local function writeToFile(html, filename)
     print('Creating ./dist/ folder');
     os.execute('mkdir dist');
-
-    local success, file = pcall(function ()
-        return io.open('dist/' .. filename, 'w')
-    end);
-    
-    if (not success) then
+    local file = io.open('dist/' .. filename, 'w');
+    if (not file) then
         error('WriteFileException');
     end
-
     file:write(html);
     file:close();
 end
@@ -28,7 +23,7 @@ end
 
 function module:export(htmlDoc, filename)
     local html = module:exportString(htmlDoc);
-    writeToIndexFile(html, filename);
+    writeToFile(html, filename);
     return true;
 end
 
