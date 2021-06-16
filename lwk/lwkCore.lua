@@ -13,16 +13,14 @@ local function writeFileToDist(html, filename)
     file:close();
 end
 
-function module:exportString(htmlDoc)
-    lwkUtils:checkInstanceof(htmlDoc, 'HtmlDocument');
-    local body = htmlDoc:renderHtml();
-    local html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>%s</title></head>%s</html>';
-    html = html:format(htmlDoc.title, body);
+function module:exportString(document)
+    lwkUtils:checkInstanceof(document, 'HtmlDocument');
+    local html = document:renderHtml();
     return html;
 end
 
-function module:export(htmlDoc, filename)
-    local html = module:exportString(htmlDoc);
+function module:export(document, filename)
+    local html = module:exportString(document);
     writeFileToDist(html, filename);
     return true;
 end
@@ -43,6 +41,10 @@ function module:addChildren(parent, ...)
         table.insert(parent.children, child);
     end
     return true;
+end
+
+function module:importCss(document, filename)
+    table.insert(document.styleImports, filename);
 end
 
 return module;

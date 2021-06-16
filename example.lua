@@ -14,6 +14,7 @@ lwk:addChild(document, header1);
 lwk:addChild(document, button1);
 lwk:addChild(document, div);
 
+lwk:importCss(document, 'style.css');
 lwk:export(document, 'index.html');
 
 
