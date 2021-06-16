@@ -4,16 +4,18 @@ local module = {};
 function module:checkInstanceof(instance, instanceof)
     if (instance.instanceof) then
         local includes = false;
-        for _, v in ipairs(instance.instanceof) do
+        local index = 1;
+        for i, v in ipairs(instance.instanceof) do
             if (v == instanceof) then
                 includes = true;
+                index = i;
             end
         end
         if (not includes) then
-            error('Expected HtmlButtonElement got ' + instance.instanceof[1]);
+            error('Expected HtmlButtonElement got ' .. instance.instanceof[index]);
         end
     else
-        error('Expected HtmlButtonElement got ' + type(instance));
+        error('Expected HtmlButtonElement got ' .. type(instance));
     end
 end
 

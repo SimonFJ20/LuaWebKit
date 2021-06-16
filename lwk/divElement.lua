@@ -4,19 +4,18 @@ local module = {};
 
 local function renderHtml(self)
     local innerHtml = lwkUtils:renderInnerHtml(self);
-    local html =  '<body>%s</body>';
+    local html =  '<div>%s</div>';
     html = html:format(innerHtml);
     return html;
 end
 
-function module:init_HtmlDoc(title)
+function module:init_DivElement()
     return {
         instanceof = {
-            'HtmlElement',
-            'HtmlDoc'
+            'HtmlDivElement',
+            'HtmlElement'
         },
         children = {},
-        title = title,
         renderHtml = renderHtml
     };
 end

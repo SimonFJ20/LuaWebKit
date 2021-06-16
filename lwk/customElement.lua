@@ -16,7 +16,7 @@ local function renderHtml(self)
     end
 end
 
-function module:init_HtmlCustom(tagname, isParent)
+function module:init_CustomElement(tagname, isParent)
     local htmlCustom = {
         instanceof = {
             'HtmlCustomElement',

@@ -19,7 +19,7 @@ local function writeToIndexFile(html, filename)
 end
 
 function module:exportString(htmlDoc)
-    lwkUtils:checkInstanceof(htmlDoc, 'HtmlDoc');
+    lwkUtils:checkInstanceof(htmlDoc, 'HtmlDocument');
     local body = htmlDoc:renderHtml();
     local html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>%s</title></head>%s</html>';
     html = html:format(htmlDoc.title, body);

@@ -3,18 +3,17 @@ local lwkUtils = require('lwk.lwkUtils');
 local module = {};
 
 local function renderHtml(self)
-    local html =  '<h%s>%s</h%s>';
-    html = html:format(self.size, self.text, self.size);
+    local html =  '<button>%s</button>';
+    html = html:format(self.text);
     return html;
 end
 
-function module:init_HtmlHeader(text, size)
+function module:init_ButtonElement(text)
     return {
         instanceof = {
-            'HtmlDivElement',
+            'HtmlButtonElement',
             'HtmlElement'
         },
-        size = size or 1,
         text = text,
         renderHtml = renderHtml
     };
