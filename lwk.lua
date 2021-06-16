@@ -9,6 +9,7 @@ end
 addModule('lwk/lwkCore');
 addModule('lwk/lwkUtils');
 addModule('lwk/htmlDoc');
+addModule('lwk/htmlCustom');
 addModule('lwk/htmlButton');
 addModule('lwk/htmlHeader');
 addModule('lwk/htmlDiv');
